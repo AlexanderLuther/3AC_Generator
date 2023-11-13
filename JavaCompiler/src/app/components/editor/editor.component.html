@@ -1,0 +1,280 @@
+<!-----------------------------------------     BARRA DE MENU   ----------------------------------------->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="/editor">
+            <img src="../../assets/img/Java.png" alt="" width="50" height="50">
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="project" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Proyecto
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="project">
+                        <li>
+                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal-nuevo-proyecto">
+                                Nuevo Proyecto
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" (click)="mostrarProyectos()">Abrir Proyecto</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" (click)="guardarProyecto()">Guardar Proyecto</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" (click)="cerrarProyecto()">Cerrar Proyecto</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Paquete
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal-nuevo-paquete">
+                                Nuevo Paquete
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item  dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Archivo
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal-nuevo-archivo">
+                                Nuevo Archivo
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item  dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Compilador
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" (click)="compilar()">
+                                Compilar
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item  dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Generar
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" (click)="generarCodigo3d()">
+                                C3D c++
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <ng-content></ng-content>
+            </ul>
+            <span class="navbar-text">
+                Compilador Java
+            </span>
+        </div>
+    </div>
+</nav>
+
+
+
+<!-----------------------------------------     IDE  ----------------------------------------->
+<div class="ide">
+
+    <!-----------------------------------------     ARBOL DE ARCHIVOS   ----------------------------------------->
+    <div class="file-tree horizontal-scrollable">
+        <ul>
+            <li *ngIf="proyecto!=null" class="carpeta" [id]="proyecto.name"
+                data-jstree='{"icon":"assets/img/carpeta.png"}'>
+                <a (click)="expandir()" class="expand link-secondary">{{proyecto.name}}</a>
+                <ul>
+                    <ng-container
+                        *ngTemplateOutlet="Recursion; context:{ paquetes: proyecto.principalPackage.packages, archivos:proyecto.principalPackage.files}"></ng-container>
+                    <ng-template #Recursion let-paquetes="paquetes" let-archivos="archivos">
+                        <li class="carpeta" *ngFor="let paquete of paquetes" id="{{paquete.id}}">
+                            <a (click)="expandir()" class="expand link-secondary">{{paquete.nombre}}</a>
+                            <ul *ngIf="paquete.paquetes.length > 0 || paquete.archivos.length > 0">
+                                <ng-container
+                                    *ngTemplateOutlet="Recursion; context:{ paquetes: paquete.paquetes, archivos: paquete.archivos }"></ng-container>
+                            </ul>
+                        </li>
+                        <li class="archivo" *ngFor="let archivo of archivos" id="{{archivo.id}}">
+                            <a (click)="actualizarCodigoEditor(archivo.id)"
+                                class="expand link-secondary">{{archivo.nombre}}</a>
+                        </li>
+                    </ng-template>
+                </ul>
+                {{expandir()}}
+            </li>
+        </ul>
+    </div>
+
+    <!-----------------------------------------     EDITOR DE TEXTO   ----------------------------------------->
+    <div class="editor">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="editor-tab" data-bs-toggle="tab" data-bs-target="#editor"
+                    type="button" role="tab" aria-controls="editor" aria-selected="true">Editor</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="codigo3d-tab" data-bs-toggle="tab" data-bs-target="#codigo3d" type="button"
+                    role="tab" aria-controls="codigo3d" aria-selected="false">Codigo 3
+                    direcciones</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="console-tab" data-bs-toggle="tab" data-bs-target="#console" type="button"
+                    role="tab" aria-controls="console" aria-selected="false">Consola
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="editor" role="tabpanel" aria-labelledby="editor-tab">
+                <div class="row">
+                    <div class="row" style="margin-top: 15px;">
+                        <div class="col-1"></div>
+                        <div class="col-2">
+                            <h5 *ngIf="archivoActual!=null">
+                                {{archivoActual.name}}
+                            </h5>
+                        </div>
+                        <div class="col-3"></div>
+                        <div class="col-2">
+                            <h5 style="text-align: right;">Linea: {{getLinea()}}</h5>
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col-2">
+                            <h5>Columna: {{getColumna()}}</h5>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-12">
+                            <div class="app-ace-editor" #editor style="width: 100%;height:470px;">
+                                {{codigoPrincipal}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="codigo3d" role="tabpanel" aria-labelledby="Codigo3d-tab">
+                <textarea readonly class="form-control font-monospace" id="cod3d">{{codigo3d}}</textarea>
+            </div>
+            <div class="tab-pane fade" id="console" role="tabpanel" aria-labelledby="Console-tab">
+                <textarea readonly class="form-control font-monospace" id="console">{{getTxtConsola()}}
+                </textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-----------------------------------------     MODALES   ----------------------------------------->
+<div class="modal modal-sm-centered" id="modal-nuevo-archivo">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nuevo archivo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" [(ngModel)]="idArchivo" autocomplete="off" pattern="[0-9]+">
+                    <label for="floatingInput">Ingrese el nombre del archivo</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                    (click)="crearArchivo()">Crear</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-sm-centered" id="modal-nuevo-paquete">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nuevo paquete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" [(ngModel)]="idPaquete" autocomplete="off">
+                    <label for="floatingInput">Ingrese el nombre del paquete</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                    (click)="crearPaquete();">Crear</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-sm-centered" id="modal-nuevo-proyecto">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nuevo proyecto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" [(ngModel)]="nombreProyecto" autocomplete="off">
+                    <label for="floatingInput">Ingrese el nombre del proyecto</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                    (click)="crearProyecto();">Crear</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade modal-sm-centered" id="modal-info" #modalinfo>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Notificacion</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-floating mb-3">
+                    <h5>{{textoInfo}}</h5>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<button id="abrirModalInfo" [hidden]="true" type="button" class="btn btn-danger btnw" data-bs-toggle="modal"
+    data-bs-target="#modal-info">Nuevo Paquete</button>

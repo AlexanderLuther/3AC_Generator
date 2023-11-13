@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditorComponent } from './editor/editor.component';
-import { ProyectosComponent } from './proyectos/proyectos.component';
+import { EditorComponent } from './components/editor/editor.component';
+import { ProyectosComponent } from './components/project/proyectos.component';
 
 const routes: Routes = [
   {path:'editor', component:EditorComponent},

@@ -1,0 +1,159 @@
+package com.rex.compiladormultilenguajeservidor.utilidades.proyecto.analisis;
+
+import java.util.LinkedList;
+import java_cup.runtime.*;
+import com.rex.compiladormultilenguajeservidor.modelos.proyecto.*;
+
+class Parser;
+
+parser code {:
+
+    LinkedList<Paquete> pilaPaquetes = new LinkedList<>();
+    private Proyecto proyecto = new Proyecto();
+    private Archivo archivo;
+
+    public void syntax_error(Symbol symbol){
+        if(symbol.value==null){
+            System.out.println("ERROR_SINTACTICO EN::NULL LINEA:"+symbol.left+" COLUMNA:"+symbol.right);
+        }else{
+            System.out.println("ERROR_SINTACTICO EN::"+((String)symbol.value)+" LINEA:"+symbol.left+" COLUMNA:"+symbol.right);
+        }
+    }
+
+    public Proyecto getProyecto(){
+        return this.proyecto;
+    }
+
+
+:}
+
+//terminales
+
+terminal
+    ET_PROYECTO_INIC,
+    ET_PROYECTO_FIN,
+    ET_NOMBRE_PROYECTO_INIC,
+    ET_NOMBRE_PROYECTO_FIN,
+    ET_PAQUETE_PRINCIPAL_INIC,
+    ET_PAQUETE_PRINCIPAL_FIN,
+    ET_PAQUETE_INIC,
+    ET_PAQUETE_FIN,
+    ET_NOMBRE_PAQUETE_INIC,
+    ET_NOMBRE_PAQUETE_FIN,
+    ET_ID_PAQUETE_INIC,
+    ET_ID_PAQUETE_FIN,
+    ET_PAQUETES_PAQUETE_INIC,
+    ET_PAQUETES_PAQUETE_FIN,
+    ET_ARCHIVOS_PAQUETE_INIC,
+    ET_ARCHIVOS_PAQUETE_FIN,
+    ET_ARCHIVO_INIC,
+    ET_ARCHIVO_FIN,
+    ET_NOMBRE_ARCHIVO_INIC,
+    ET_NOMBRE_ARCHIVO_FIN,
+    ET_ID_ARCHIVO_INIC,
+    ET_ID_ARCHIVO_FIN,
+    ET_PAQUETE_ARCHIVO_INIC,
+    ET_PAQUETE_ARCHIVO_FIN,
+    ET_CODIGO_ARCHIVO_INIC,
+    ET_CODIGO_ARCHIVO_FIN,
+    CODIGO,
+    ID_NOMBRE
+;
+//no terminales
+
+non terminal
+    inicial,
+    proyecto,
+    paquete_principal,
+    paquetes,
+    paquetes_p,
+    archivos,
+    archivos_p,
+    paquete,
+    archivo
+;
+
+inicial ::= proyecto
+    ;
+
+proyecto ::=
+    ET_PROYECTO_INIC ET_NOMBRE_PROYECTO_INIC ID_NOMBRE:id ET_NOMBRE_PROYECTO_FIN {:
+        proyecto.setNombre(id.toString());
+        proyecto.getPaquetePrincipal().setId(id.toString());
+        proyecto.getPaquetePrincipal().setNombre(id.toString());
+    :}
+         paquete_principal
+    ET_PROYECTO_FIN
+    ;
+
+paquete_principal ::=
+    ET_PAQUETE_PRINCIPAL_INIC {:
+        pilaPaquetes.add(proyecto.getPaquetePrincipal());
+    :}
+        ET_PAQUETES_PAQUETE_INIC
+            paquetes
+        ET_PAQUETES_PAQUETE_FIN
+        ET_ARCHIVOS_PAQUETE_INIC
+            archivos
+        ET_ARCHIVOS_PAQUETE_FIN
+    ET_PAQUETE_PRINCIPAL_FIN
+    ;
+
+paquetes ::= paquetes_p
+    | /*Lambda*/
+    ;
+
+paquetes_p ::= paquete
+    | paquete paquetes_p
+    ;
+
+archivos ::= archivos_p
+    | /*Lambda*/
+    ;
+
+archivos_p ::= archivo
+    | archivo archivos_p
+    ;
+
+paquete ::=
+    ET_PAQUETE_INIC {:
+            Paquete paquete = new Paquete();
+            pilaPaquetes.getLast().agregarPaquete(paquete);
+            pilaPaquetes.add(paquete);
+        :}
+        ET_NOMBRE_PAQUETE_INIC ID_NOMBRE:nombre ET_NOMBRE_PAQUETE_FIN {:
+            pilaPaquetes.getLast().setNombre(nombre.toString());
+        :}
+        ET_ID_PAQUETE_INIC ID_NOMBRE:id ET_ID_PAQUETE_FIN {:
+            pilaPaquetes.getLast().setId(id.toString());
+        :}
+        ET_PAQUETES_PAQUETE_INIC
+            paquetes
+        ET_PAQUETES_PAQUETE_FIN
+        ET_ARCHIVOS_PAQUETE_INIC
+            archivos
+        ET_ARCHIVOS_PAQUETE_FIN
+    ET_PAQUETE_FIN {:
+        pilaPaquetes.removeLast();
+    :}
+    ;
+
+archivo ::=
+    ET_ARCHIVO_INIC {:
+        archivo = new Archivo();
+        pilaPaquetes.getLast().agregarArchivo(archivo);
+    :}
+        ET_NOMBRE_ARCHIVO_INIC ID_NOMBRE:nombre ET_NOMBRE_ARCHIVO_FIN {:
+            archivo.setNombre(nombre.toString());
+        :}
+        ET_ID_ARCHIVO_INIC ID_NOMBRE:id ET_ID_ARCHIVO_FIN {:
+            archivo.setId(id.toString());
+        :}
+        ET_PAQUETE_ARCHIVO_INIC ID_NOMBRE:paquete ET_PAQUETE_ARCHIVO_FIN {:
+            archivo.setPaquete(paquete.toString());
+        :}
+        ET_CODIGO_ARCHIVO_INIC CODIGO:codigo ET_CODIGO_ARCHIVO_FIN {:
+            archivo.setCodigo(codigo.toString());
+        :}
+    ET_ARCHIVO_FIN
+    ;

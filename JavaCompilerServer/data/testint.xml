@@ -1,0 +1,115 @@
+<PROYECTO_W>     <NOMBRE_PROYECTO>testint</NOMBRE_PROYECTO>     <PAQUETE_PRINCIPAL>     <PAQUETES_PAQUETE><PAQUETE>     <NOMBRE_PAQUETE>if</NOMBRE_PAQUETE>     <ID_PAQUETE>if</ID_PAQUETE>     <PAQUETES_PAQUETE>     </PAQUETES_PAQUETE>     <ARCHIVOS_PAQUETE><ARCHIVO>     <NOMBRE_ARCHIVO>if</NOMBRE_ARCHIVO>     <ID_ARCHIVO>if.if</ID_ARCHIVO>     <PAQUETE_ARCHIVO>if</PAQUETE_ARCHIVO>     <CODIGO_ARCHIVO>*!+"@@@"###$$$%%PROGRAMA
+
+void main(){
+	int x = 12;
+	if(x<0){
+		x = 1;
+		if(x!=1){
+			x = 100;
+		}
+	}else if(x>=0){
+		x = 2;
+		if(x!=2){
+			x = 200;
+		}else if(x!=3){
+			x = 300;
+		}
+	}else{
+		x = 3;
+		if(x!=4){
+			x = 400;
+		}else if(x!=5){
+			x = 500;
+		}else{
+			x = 999;
+		}
+	}
+	x--;
+}$$$###"@@@"+!*</CODIGO_ARCHIVO></ARCHIVO>     </ARCHIVOS_PAQUETE></PAQUETE><PAQUETE>     <NOMBRE_PAQUETE>while</NOMBRE_PAQUETE>     <ID_PAQUETE>while</ID_PAQUETE>     <PAQUETES_PAQUETE>     </PAQUETES_PAQUETE>     <ARCHIVOS_PAQUETE><ARCHIVO>     <NOMBRE_ARCHIVO>while</NOMBRE_ARCHIVO>     <ID_ARCHIVO>while.while</ID_ARCHIVO>     <PAQUETE_ARCHIVO>while</PAQUETE_ARCHIVO>     <CODIGO_ARCHIVO>*!+"@@@"###$$$%%PROGRAMA
+
+void main(){
+	int x = 10;
+	while(x>0){
+		x = x - 1;
+	}
+	x = 0;
+}$$$###"@@@"+!*</CODIGO_ARCHIVO></ARCHIVO>     </ARCHIVOS_PAQUETE></PAQUETE><PAQUETE>     <NOMBRE_PAQUETE>dowhile</NOMBRE_PAQUETE>     <ID_PAQUETE>dowhile</ID_PAQUETE>     <PAQUETES_PAQUETE>     </PAQUETES_PAQUETE>     <ARCHIVOS_PAQUETE><ARCHIVO>     <NOMBRE_ARCHIVO>dowhile</NOMBRE_ARCHIVO>     <ID_ARCHIVO>dowhile.dowhile</ID_ARCHIVO>     <PAQUETE_ARCHIVO>dowhile</PAQUETE_ARCHIVO>     <CODIGO_ARCHIVO>*!+"@@@"###$$$%%PROGRAMA
+
+int contador = 10;
+
+void main(){
+	do{
+		contador = contador - 1;
+	}while(contador>=0);
+	contador = 99;
+}$$$###"@@@"+!*</CODIGO_ARCHIVO></ARCHIVO>     </ARCHIVOS_PAQUETE></PAQUETE><PAQUETE>     <NOMBRE_PAQUETE>for</NOMBRE_PAQUETE>     <ID_PAQUETE>for</ID_PAQUETE>     <PAQUETES_PAQUETE>     </PAQUETES_PAQUETE>     <ARCHIVOS_PAQUETE><ARCHIVO>     <NOMBRE_ARCHIVO>for</NOMBRE_ARCHIVO>     <ID_ARCHIVO>for.for</ID_ARCHIVO>     <PAQUETE_ARCHIVO>for</PAQUETE_ARCHIVO>     <CODIGO_ARCHIVO>*!+"@@@"###$$$%%PROGRAMA
+
+int x = 0;
+int y = 0;
+
+void main(){
+	for(contador = 0;contador<10;contador++){
+		x = contador;
+		y = x + contador * 2;
+		while(x>0){
+			x--;
+		}
+	}
+	x++;
+	y--;
+}$$$###"@@@"+!*</CODIGO_ARCHIVO></ARCHIVO>     </ARCHIVOS_PAQUETE></PAQUETE><PAQUETE>     <NOMBRE_PAQUETE>switch</NOMBRE_PAQUETE>     <ID_PAQUETE>switch</ID_PAQUETE>     <PAQUETES_PAQUETE>     </PAQUETES_PAQUETE>     <ARCHIVOS_PAQUETE><ARCHIVO>     <NOMBRE_ARCHIVO>switch</NOMBRE_ARCHIVO>     <ID_ARCHIVO>switch.switch</ID_ARCHIVO>     <PAQUETE_ARCHIVO>switch</PAQUETE_ARCHIVO>     <CODIGO_ARCHIVO>*!+"@@@"###$$$%%PROGRAMA
+
+char c = 'c';
+
+void main(){
+	
+	switch(c){
+		case 'c':
+			c = 'c';
+			int x = 12;
+			if(x<0){
+				x = 1;
+				if(x!=1){
+					x = 100;
+				}
+			}else if(x>=0){
+				x = 2;
+				if(x!=2){
+					x = 200;
+				}else if(x!=3){
+					x = 300;
+				}
+			}else{
+				x = 3;
+				if(x!=4){
+					x = 400;
+				}else if(x!=5){
+					x = 500;
+				}else{
+					x = 999;
+				}
+			}
+			x--;
+			break;
+		case 'x':
+			c = 'x';
+			if(c==c &&  c==c){
+				c = 's';
+			}
+			break;
+		case 'w':
+			c = 'w';
+		default:
+			c = 'd';
+	}
+	
+}$$$###"@@@"+!*</CODIGO_ARCHIVO></ARCHIVO>     </ARCHIVOS_PAQUETE></PAQUETE>     </PAQUETES_PAQUETE>     <ARCHIVOS_PAQUETE><ARCHIVO>     <NOMBRE_ARCHIVO>main</NOMBRE_ARCHIVO>     <ID_ARCHIVO>main</ID_ARCHIVO>     <PAQUETE_ARCHIVO>testint</PAQUETE_ARCHIVO>     <CODIGO_ARCHIVO>*!+"@@@"###$$$%%PROGRAMA
+
+int x = 0;
+int y = 0;
+void main(){
+	x = 12+13*2+5;
+	y = x + 12;
+	y++;
+}
+$$$###"@@@"+!*</CODIGO_ARCHIVO></ARCHIVO>     </ARCHIVOS_PAQUETE>     </PAQUETE_PRINCIPAL></PROYECTO_W>

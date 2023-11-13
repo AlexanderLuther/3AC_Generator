@@ -1,0 +1,114 @@
+<PROYECTO_W>     <NOMBRE_PROYECTO>test1</NOMBRE_PROYECTO>     <PAQUETE_PRINCIPAL>     <PAQUETES_PAQUETE><PAQUETE>     <NOMBRE_PAQUETE>backend</NOMBRE_PAQUETE>     <ID_PAQUETE>backend</ID_PAQUETE>     <PAQUETES_PAQUETE>     </PAQUETES_PAQUETE>     <ARCHIVOS_PAQUETE><ARCHIVO>     <NOMBRE_ARCHIVO>TestBack</NOMBRE_ARCHIVO>     <ID_ARCHIVO>backend.TestBack</ID_ARCHIVO>     <PAQUETE_ARCHIVO>backend</PAQUETE_ARCHIVO>     <CODIGO_ARCHIVO>*!+"@@@"###$$$%%PROGRAMA
+
+#include "paquete.*"
+
+int x = 12+13+1;
+
+const char c = 'c';
+
+void main(){
+	int x = 12;
+}
+$$$###"@@@"+!*</CODIGO_ARCHIVO></ARCHIVO>     </ARCHIVOS_PAQUETE></PAQUETE><PAQUETE>     <NOMBRE_PAQUETE>backend2</NOMBRE_PAQUETE>     <ID_PAQUETE>backend2</ID_PAQUETE>     <PAQUETES_PAQUETE>     </PAQUETES_PAQUETE>     <ARCHIVOS_PAQUETE><ARCHIVO>     <NOMBRE_ARCHIVO>test111</NOMBRE_ARCHIVO>     <ID_ARCHIVO>backend2.test111</ID_ARCHIVO>     <PAQUETE_ARCHIVO>backend2</PAQUETE_ARCHIVO>     <CODIGO_ARCHIVO>*!+"@@@"###$$$$$$###"@@@"+!*</CODIGO_ARCHIVO></ARCHIVO>     </ARCHIVOS_PAQUETE></PAQUETE>     </PAQUETES_PAQUETE>     <ARCHIVOS_PAQUETE><ARCHIVO>     <NOMBRE_ARCHIVO>main</NOMBRE_ARCHIVO>     <ID_ARCHIVO>main</ID_ARCHIVO>     <PAQUETE_ARCHIVO>test1</PAQUETE_ARCHIVO>     <CODIGO_ARCHIVO>*!+"@@@"###$$$%%JAVA
+
+public class Test1{
+	public void test1(){
+		if("true"=="true"){
+			
+		}else if(12>12&&12<=12|true||12^5+3!=12.4){
+			
+		}
+	}
+}
+
+public class Test2{
+
+	private void test(){
+		for(String cadena="cadena";cadena=="cadena";cadena="otra cadena"){
+			cadena = "cadena";
+		}
+	}
+	
+}
+
+public class Test3{
+
+	private void calcular(int num1, int num2, int tipo_opr){
+		switch(tipo_opr){
+			case 1:
+				//sumar
+				break;
+			case 2: 
+				//restar
+			case 3:
+				//multiplicar
+				break;
+			case 4:
+				//dividir
+			default:
+				//elevar num1 a la potencia num2
+		}
+	}
+	
+}
+
+public class Calculadora{
+	private int numero1 = 1;
+	int numero2 = 2;
+	
+	void sumar(){
+		int numero100 = 3;
+	}
+	
+	public int restar(){
+		
+	}
+	
+	private double dividir(){
+		
+	}
+}
+
+public class OtraCalculadora{
+	int numero1 = 1;
+	private int numero2 = 2;
+	
+	private void sumar(){
+		int numero454;
+	}
+	
+	public void restar(){
+		
+	}
+	
+	String multiplicar(){
+		
+	}
+}
+$$$###"@@@"+!*</CODIGO_ARCHIVO></ARCHIVO><ARCHIVO>     <NOMBRE_ARCHIVO>main2</NOMBRE_ARCHIVO>     <ID_ARCHIVO>main2</ID_ARCHIVO>     <PAQUETE_ARCHIVO>test1</PAQUETE_ARCHIVO>     <CODIGO_ARCHIVO>*!+"@@@"###$$$%%PY
+
+def metodo1():
+	x = 5
+	if(1<10):
+		print
+		print
+		if(1<10):
+			print
+			println
+			x= 12
+			println
+		else:
+			println
+	elif(2>5):
+		y = True and True or False
+		if(3<4 and y):
+			println
+		else:
+			print
+	else:
+		x = 100
+		for y in range(2):
+			println
+
+def metodo2():
+$$$###"@@@"+!*</CODIGO_ARCHIVO></ARCHIVO><ARCHIVO>     <NOMBRE_ARCHIVO>main3</NOMBRE_ARCHIVO>     <ID_ARCHIVO>main3</ID_ARCHIVO>     <PAQUETE_ARCHIVO>test1</PAQUETE_ARCHIVO>     <CODIGO_ARCHIVO>*!+"@@@"###$$$$$$###"@@@"+!*</CODIGO_ARCHIVO></ARCHIVO><ARCHIVO>     <NOMBRE_ARCHIVO>main4</NOMBRE_ARCHIVO>     <ID_ARCHIVO>main4</ID_ARCHIVO>     <PAQUETE_ARCHIVO>test1</PAQUETE_ARCHIVO>     <CODIGO_ARCHIVO>*!+"@@@"###$$$$$$###"@@@"+!*</CODIGO_ARCHIVO></ARCHIVO>     </ARCHIVOS_PAQUETE>     </PAQUETE_PRINCIPAL></PROYECTO_W>

@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { EditorComponent } from './editor/editor.component';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ModalModule } from './modal/modulo/modal/modal.module';
-import { ProyectoService } from './services/proyecto/proyecto.service';
-import { ProyectosComponent } from './proyectos/proyectos.component';
-import { Codigo3dService } from './services/codigo3d/codigo3d.service';
+
+import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { EditorComponent } from './components/editor/editor.component';
+import { ProyectosComponent } from './components/project/proyectos.component';
+import { ProjectService } from './services/project/project.service';
+import { ModalModule } from './components/modal/modulo/modal/modal.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,7 @@ import { Codigo3dService } from './services/codigo3d/codigo3d.service';
     HttpClientModule,
     ModalModule
   ],
-  providers: [ProyectoService,Codigo3dService],
+  providers: [ProjectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

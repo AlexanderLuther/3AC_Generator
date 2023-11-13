@@ -1,0 +1,90 @@
+<PROYECTO_W>     <NOMBRE_PROYECTO>Test2</NOMBRE_PROYECTO>     <PAQUETE_PRINCIPAL>     <PAQUETES_PAQUETE><PAQUETE>     <NOMBRE_PAQUETE>java</NOMBRE_PAQUETE>     <ID_PAQUETE>java</ID_PAQUETE>     <PAQUETES_PAQUETE>     </PAQUETES_PAQUETE>     <ARCHIVOS_PAQUETE><ARCHIVO>     <NOMBRE_ARCHIVO>codigojava</NOMBRE_ARCHIVO>     <ID_ARCHIVO>java.codigojava</ID_ARCHIVO>     <PAQUETE_ARCHIVO>java</PAQUETE_ARCHIVO>     <CODIGO_ARCHIVO>*!+"@@@"###$$$%%JAVA
+
+public class calculadora{
+	int z2;
+	public void calcular(int opr1, int opr2, int opr){
+		
+		if(opr==1){
+			//sumar
+			int z = 1;
+		}
+		
+		while(2>3){
+			int z1;
+		}
+		
+		int z1;
+		
+		do{
+			int z11;
+		}while(2>3&&1>z1);
+		
+		int x = 0;
+		for(x = 0;x<10;x++){
+			int y = 12 + x + z1;
+		}
+		
+		if(x==x){
+			x++;
+		}
+		
+		String nombre = "willy";
+		
+		int zzz1;
+		switch(nombre){
+			case "jessiel":
+				int zzz = 111;
+				println("Es Jessiel"+zzz);
+				break;
+			case "willy":
+				
+				println("Es Willy"+zzz1);
+				break;
+			default:
+				println("Ninguno");
+		}
+	}
+	
+}$$$###"@@@"+!*</CODIGO_ARCHIVO></ARCHIVO>     </ARCHIVOS_PAQUETE></PAQUETE>     </PAQUETES_PAQUETE>     <ARCHIVOS_PAQUETE><ARCHIVO>     <NOMBRE_ARCHIVO>main</NOMBRE_ARCHIVO>     <ID_ARCHIVO>main</ID_ARCHIVO>     <PAQUETE_ARCHIVO>Test2</PAQUETE_ARCHIVO>     <CODIGO_ARCHIVO>*!+"@@@"###$$$%%PROGRAMA
+
+#include "paquete.*"
+
+int x = 12+13+1;
+
+const char c = 'c';
+
+void main(){
+	int x1 = 12;
+	if(2>3){
+		int y1 = 0;
+	}
+	if(3>3){
+		int y1= 100;
+		while(1+1>1){
+			//hacer algo
+			do{
+				char car = 'v';
+			}while(1+1>1);
+			char cs = 's';
+		}
+		char cs = 's';
+	}
+	
+	switch(100){
+		case 1:
+			//hacer algo
+			char varswitch = 's';
+			break;
+		default:
+			char varswitch = 's';
+			for(int cont = 0;cont<10;cont++){
+				if(cont==0){
+					//imprimir que contador es 0
+					varswitch = 'w';
+				}
+			}
+			float cont = 12.1;
+	}
+	x = 12;
+}
+$$$###"@@@"+!*</CODIGO_ARCHIVO></ARCHIVO>     </ARCHIVOS_PAQUETE>     </PAQUETE_PRINCIPAL></PROYECTO_W>
