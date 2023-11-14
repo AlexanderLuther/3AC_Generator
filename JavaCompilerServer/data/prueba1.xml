@@ -1,0 +1,19 @@
+<PROYECTO_W>     <NOMBRE_PROYECTO>prueba1</NOMBRE_PROYECTO>     <PAQUETE_PRINCIPAL>     <PAQUETES_PAQUETE><PAQUETE>     <NOMBRE_PAQUETE>archivos</NOMBRE_PAQUETE>     <ID_PAQUETE>archivos</ID_PAQUETE>     <PAQUETES_PAQUETE>     </PAQUETES_PAQUETE>     <ARCHIVOS_PAQUETE><ARCHIVO>     <NOMBRE_ARCHIVO>archivo1</NOMBRE_ARCHIVO>     <ID_ARCHIVO>archivos.archivo1</ID_ARCHIVO>     <PAQUETE_ARCHIVO>archivos</PAQUETE_ARCHIVO>     <CODIGO_ARCHIVO>*!+"@@@"###$$$%%JAVA
+
+public class Calculadora{
+	
+	public void sumar(){
+		
+	}
+	
+	public void restar(){
+		
+	}
+	
+}$$$###"@@@"+!*</CODIGO_ARCHIVO></ARCHIVO><ARCHIVO>     <NOMBRE_ARCHIVO>archivo2</NOMBRE_ARCHIVO>     <ID_ARCHIVO>archivos.archivo2</ID_ARCHIVO>     <PAQUETE_ARCHIVO>archivos</PAQUETE_ARCHIVO>     <CODIGO_ARCHIVO>*!+"@@@"###$$$%%PROGRAMA
+
+int x = 0;
+
+void main(){
+	x = 10;
+}$$$###"@@@"+!*</CODIGO_ARCHIVO></ARCHIVO>     </ARCHIVOS_PAQUETE></PAQUETE>     </PAQUETES_PAQUETE>     <ARCHIVOS_PAQUETE>     </ARCHIVOS_PAQUETE>     </PAQUETE_PRINCIPAL></PROYECTO_W>

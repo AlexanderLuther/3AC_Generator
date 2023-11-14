@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-12">
+        <div class="row" style="margin-top: 25px;">
+            <div class="col-4"></div>
+            <div class="col-4" style="text-align: center;">
+                <h1>Proyectos</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-3"></div>
+            <div class="col-6">
+                <div class="list-group">
+                    <button *ngFor="let project of projects" (click)="openProject(project);"
+                        class="list-group-item list-group-item-action" style="margin-top: 3px;">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{project}}</h5>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-12" style="text-align: center;">
+                <footer class="blog-footer">
+                    <p>
+                        <button class="btn btn-danger" (click)="back()">Regresar</button>
+                    </p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</div>

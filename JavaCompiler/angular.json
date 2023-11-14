@@ -3,13 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Compiler3D": {
+    "JavaCompiler": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -17,27 +13,21 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/compiler3-d",
+            "outputPath": "dist/java-compiler",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
-            "scripts": [
-              "src/assets/gramm/main/gramm-main.js"
-            ],
-            "allowedCommonJsDependencies": [
-              "src/assets/gramm/main/gramm-main.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -70,21 +60,18 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Compiler3D:build:production"
+              "browserTarget": "JavaCompiler:build:production"
             },
             "development": {
-              "browserTarget": "Compiler3D:build:development"
+              "browserTarget": "JavaCompiler:build:development"
             }
           },
-          "defaultConfiguration": "development",
-          "options": {
-            "port": 4200
-          }
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Compiler3D:build"
+            "browserTarget": "JavaCompiler:build"
           }
         },
         "test": {
@@ -95,13 +82,12 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }

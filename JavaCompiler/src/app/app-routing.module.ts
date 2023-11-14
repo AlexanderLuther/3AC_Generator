@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditorComponent } from './components/editor/editor.component';
-import { ProyectosComponent } from './components/project/proyectos.component';
+import { IdeComponent } from './components/ide/ide.component';
+import { ProjectListComponent } from './components/project-list/project-list.component';
 
 const routes: Routes = [
-  {path:'editor', component:EditorComponent},
-  {path:'proyectos',component:ProyectosComponent},
-  {path:'', redirectTo: 'editor', pathMatch:'full'}
+  { path : 'ide', component: IdeComponent },
+  { path : 'projects', component: ProjectListComponent },
+  { path : '', redirectTo: '/ide', pathMatch: 'full'}
 ];
 
 @NgModule({

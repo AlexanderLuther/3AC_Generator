@@ -1,29 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 
-import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { EditorComponent } from './components/editor/editor.component';
-import { ProyectosComponent } from './components/project/proyectos.component';
-import { ProjectService } from './services/project/project.service';
-import { ModalModule } from './components/modal/modulo/modal/modal.module';
+import { AppComponent } from './app.component';
+import { IdeComponent } from './components/ide/ide.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ProjectListComponent } from './components/project-list/project-list.component';
+import { ProjectService } from './services/ide/project.service';
+import { PackageManagerService } from './services/ide/package-manager.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditorComponent,
-    ProyectosComponent
+    IdeComponent,
+    ProjectListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule,
-    ModalModule
+    FormsModule
   ],
-  providers: [ProjectService],
+  providers: [ProjectService, PackageManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
