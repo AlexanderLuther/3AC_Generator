@@ -27,7 +27,13 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/grammar.js"
+
+            ],
+            "allowedCommonJsDependencies": [
+              "src/assets/grammar.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -89,7 +95,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/grammar.js"
+
+            ]
           }
         }
       }

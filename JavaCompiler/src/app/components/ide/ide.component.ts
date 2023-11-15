@@ -5,6 +5,7 @@ import * as $ from 'jquery';
 import 'jstree';
 import { File } from 'src/app/models/ide/file.model';
 import { Project } from 'src/app/models/ide/project.model.';
+import { AnalysisManagerService } from 'src/app/services/ide/analysis-manager.service';
 import { PackageManagerService } from 'src/app/services/ide/package-manager.service';
 import { ProjectService } from 'src/app/services/ide/project.service';
 
@@ -19,6 +20,7 @@ export class IdeComponent implements OnInit, AfterViewInit{
   public principalCode?: string;
   public threeAddressCode?: string;
   public textConsole?: string;
+  public log?: string;
 
   //Modals
   public idFile?: string;
@@ -37,6 +39,7 @@ export class IdeComponent implements OnInit, AfterViewInit{
   constructor(
     private projectService: ProjectService, 
     private packageManagerService: PackageManagerService,
+    private analysisManagerService: AnalysisManagerService,
     private router: Router){
       if(localStorage.getItem('project') != null && localStorage.getItem('project') != "null"){
         projectService.getProject(localStorage.getItem('project')!).subscribe(data =>{
@@ -76,7 +79,12 @@ export class IdeComponent implements OnInit, AfterViewInit{
   }
 
 
-  public compile(){}
+  public compile(){
+    this.autoSaveProject();
+    this.analysisManagerService.analyse(this.ideProject!);
+
+  }
+
   public generate3ac(){}
 
   public getLine(){
